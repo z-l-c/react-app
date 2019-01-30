@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
 	entry: {
 		app: './app/index.js',
-		framework: ['react', 'react-dom'],	
+		framework: ['react', 'react-dom', 'react-router'],
 	},
 	output: {
 		filename: "js/bundle.js",
