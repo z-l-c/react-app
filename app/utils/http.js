@@ -15,9 +15,23 @@ instance.defaults.withCredentials = true; // 设置cross跨域 并设置访问�
 instance.defaults.headers.common.Authorization = ''; // 设置请求头为 Authorization
 
 // 请求拦截器
-instance.interceptors.request.use(config => config, error => Promise.reject(error));
+instance.interceptors.request.use(
+	(config) => {
+		return config;
+	},
+	(error) => {
+		return Promise.reject(error);
+	}
+);
 
 // 响应拦截器
-instance.interceptors.response.use(response => response, error => Promise.reject(error));
+instance.interceptors.response.use(
+	(response) => {
+		return response;
+	},
+	(error) => {
+		return Promise.reject(error);
+	}
+);
 
 export default instance;

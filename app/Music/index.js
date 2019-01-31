@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import http from '../../utils/http';
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import http from '../utils/http';
 import styles from './index.scss';
-let img = require("../../../public/images/toy.png");
+import Account from '../Account';
+import Favorite from '../Favorite';
+let img = require("../../public/images/toy.png");
 
-export default class Home extends Component {
+export default class Music extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -40,12 +43,20 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div className="homeContent">
-                this is the home page
-                <img src={ img } />
-                <p>GET: { this.state.getData }</p>
-                <p>GET: { this.state.postData }</p>
-            </div>
+
+        	<Router>
+				<div>
+					<ul>
+						<li><Link to="/my">My</Link></li>
+						<li><Link to="/favorite">Favorite</Link></li>
+					</ul>
+					<Switch>
+		                <Route exact path="/my" component={Account} />
+		                <Route exact path="/favorite" component={Favorite} />
+		            </Switch>
+				</div>
+			</Router>
+            
         )
     }
 }
